@@ -46,7 +46,7 @@ function inquireForPurchase() {
         {
             name: "ID",
             type: "input",
-            message: "What is the item number for the item you wish to purchase?"
+            message: "What is the item ID for the item you wish to purchase?"
         }, {
             name: 'Quantity',
             type: 'input',
