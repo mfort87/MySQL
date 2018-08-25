@@ -67,6 +67,6 @@ function updateInquiry() {
 };
 
 function lowInventory(){
-    inquire.prompt
+   connection.query("SELECT * from Products where StockQuantity <= 5")
 
 }
