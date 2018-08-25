@@ -1,9 +1,9 @@
-var mysql = require('mysql');
-var inquirer = require('inquirer');
-var Table = require('cli-table');
+let mysql = require('mysql');
+let inquirer = require('inquirer');
+let Table = require('cli-table');
 
 
-var connection = mysql.createConnection({
+let connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
     user: "root",
@@ -18,7 +18,7 @@ function displayAll() {
             console.log(error)
         };
 
-        var theDisplayTable = new Table({
+        let theDisplayTable = new Table({
 
             head: ['Item ID', 'Product Name', 'Category', 'Price', 'Quantity'],
 
@@ -54,8 +54,8 @@ function inquireForPurchase() {
         },
 
     ]).then(function (answers) {
-        var quantityDesired = answers.Quantity;
-        var IDDesired = answers.ID;
+        let quantityDesired = answers.Quantity;
+        let IDDesired = answers.ID;
         purchaseFromDatabase(IDDesired, quantityDesired);
     });
 
@@ -70,7 +70,7 @@ function purchaseFromDatabase(ID, quantityNeeded) {
         
         if (quantityNeeded <= response[0].StockQuantity) {
            
-            var totalCost = response[0].Price * quantityNeeded;
+            let totalCost = response[0].Price * quantityNeeded;
            
             console.log("We've got it! Coming right up!");
             console.log("Your total cost for " + quantityNeeded + " " + response[0].ProductName + " is " + totalCost + ". We appreciate your business today!");
